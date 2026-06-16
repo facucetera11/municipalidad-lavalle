@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Municipalidad de General Lavalle</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #ffffff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .site {
+      width: min(100%, 1920px);
+      margin: 0 auto;
+      position: relative;
+      background: #cfeaf2;
+    }
+
+    .page {
+      display: none;
+      position: relative;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .page img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+
+    .hotspot {
+      position: absolute;
+      top: 1.9%;
+      height: 2.4%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 0;
+      color: transparent;
+    }
+
+    .hotspot:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.95);
+      outline-offset: 2px;
+    }
+
+    .municipio { left: 34.0%; width: 9.5%; }
+    .contacto { left: 43.5%; width: 8.8%; }
+    .turismo { left: 52.3%; width: 7.7%; }
+    .noticias { left: 60.0%; width: 8.5%; }
+    .hcd { left: 68.5%; width: 5.5%; }
+
+    .home-link {
+      position: absolute;
+      left: 2.7%;
+      top: 1.0%;
+      width: 18.2%;
+      height: 3.9%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+      font-size: 0;
+      color: transparent;
+    }
+
+    @media (max-width: 1920px) {
+      .site {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="site" aria-label="Municipalidad de General Lavalle">
+    <section class="page active" id="home" aria-label="Inicio">
+      <img src="images/page_01.jpg" alt="Página de inicio de Municipalidad de General Lavalle">
+      <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
+      <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
+      <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
+      <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
+      <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
+      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+    </section>
+
+    <section class="page" id="hcd" aria-label="Honorable Concejo Deliberante">
+      <img src="images/page_02.jpg" alt="Conformación Honorable Concejo Deliberante General Lavalle">
+      <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
+      <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
+      <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
+      <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
+      <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
+      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+    </section>
+
+    <section class="page" id="contacto" aria-label="Contacto">
+      <img src="images/page_03.jpg" alt="Guía de teléfonos útiles de General Lavalle">
+      <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
+      <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
+      <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
+      <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
+      <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
+      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+    </section>
+
+    <section class="page" id="municipio" aria-label="Municipio">
+      <img src="images/page_04.jpg" alt="Autoridades y ciudad de General Lavalle">
+      <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
+      <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
+      <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
+      <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
+      <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
+      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+    </section>
+  </main>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach((page) => {
+        page.classList.toggle('active', page.id === pageId);
+      });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  </script>
+</body>
+</html>
