@@ -15,6 +15,7 @@
       min-height: 100%;
       background: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
+      overflow-x: auto;
     }
 
     .site {
@@ -39,6 +40,32 @@
       color: transparent;
       text-decoration: none;
       z-index: 2;
+      transition: transform 160ms ease;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      inset: -18%;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 6px 16px rgba(16, 54, 70, 0.18);
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    a:hover {
+      transform: translateY(-8%);
+    }
+
+    a:hover::after {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    a:active {
+      transform: translateY(6%) scale(0.98);
     }
 
     .home-link {
@@ -53,6 +80,18 @@
     .turismo { left: 52.3%; width: 7.7%; }
     .noticias { left: 60.0%; width: 7.4%; }
     .hcd { left: 68.2%; width: 6.0%; }
+
+    @media (max-width: 768px) {
+      body {
+        background: #cfeaf2;
+      }
+
+      .site {
+        width: 960px;
+        max-width: none;
+        margin: 0;
+      }
+    }
   </style>
 </head>
 <body>
