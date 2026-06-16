@@ -132,29 +132,16 @@
       outline-offset: 2px;
     }
 
-    .hotspot::after,
-    .home-link::after {
-      content: "";
-      position: absolute;
-      inset: -6px -10px;
+    .hotspot:hover,
+    .home-link:hover {
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.22);
-      box-shadow: 0 4px 14px rgba(16, 54, 70, 0.18);
-      opacity: 0;
-      transform: scale(0.92);
-      transition: opacity 160ms ease, transform 160ms ease;
     }
 
-    .hotspot:hover::after,
-    .home-link:hover::after {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .hotspot:active::after,
-    .home-link:active::after {
-      opacity: 0.7;
-      transform: scale(0.96);
+    .hotspot:active,
+    .home-link:active {
+      background: rgba(255, 255, 255, 0.32);
+      border-radius: 999px;
     }
 
     .municipio { left: 34.8%; width: 8.2%; }
