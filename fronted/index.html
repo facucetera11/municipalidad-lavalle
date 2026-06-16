@@ -15,9 +15,79 @@
       min-height: 100%;
       background: #ffffff;
       font-family: Arial, Helvetica, sans-serif;
-      overflow-x: auto;
+      overflow-x: hidden;
     }
 
+    /* ── MOBILE NAV ─────────────────────────────────────── */
+    .mobile-nav {
+      display: none;
+      background: #0f3446;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .mobile-nav::-webkit-scrollbar { display: none; }
+
+    .mobile-nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 0 4px;
+      min-width: max-content;
+    }
+
+    .mobile-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px 10px 8px;
+      text-decoration: none;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+
+    .mobile-logo img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .mobile-logo span {
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .mobile-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 14px 16px;
+      background: transparent;
+      border: 0;
+      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 160ms ease, background 160ms ease;
+      letter-spacing: 0.3px;
+    }
+
+    .mobile-nav-btn:hover,
+    .mobile-nav-btn:active {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* ── SITE / PAGES ───────────────────────────────────── */
     .site {
       width: min(100%, 1920px);
       margin: 0 auto;
@@ -41,6 +111,7 @@
       user-select: none;
     }
 
+    /* ── DESKTOP HOTSPOTS ───────────────────────────────── */
     .hotspot {
       position: absolute;
       top: var(--nav-top);
@@ -65,7 +136,7 @@
     .home-link::after {
       content: "";
       position: absolute;
-      inset: -18%;
+      inset: -30% -12%;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.18);
       box-shadow: 0 6px 16px rgba(16, 54, 70, 0.18);
@@ -90,11 +161,11 @@
       transform: translateY(6%) scale(0.98);
     }
 
-    .municipio { left: 34.0%; width: 9.5%; }
-    .contacto { left: 43.5%; width: 8.8%; }
-    .turismo { left: 52.3%; width: 7.7%; }
-    .noticias { left: 60.0%; width: 7.4%; }
-    .hcd { left: 68.2%; width: 6.0%; }
+    .municipio { left: 34.8%; width: 8.2%; }
+    .contacto  { left: 44.0%; width: 7.5%; }
+    .turismo   { left: 52.3%; width: 6.5%; }
+    .noticias  { left: 59.4%; width: 7.0%; }
+    .hcd       { left: 67.1%; width: 4.2%; }
 
     .home-link {
       position: absolute;
@@ -140,6 +211,7 @@
       --logo-height: 5.0%;
     }
 
+    /* ── MAPA ───────────────────────────────────────────── */
     .real-map {
       position: absolute;
       left: 0;
@@ -161,6 +233,12 @@
       pointer-events: none;
     }
 
+    /* mapa en mobile: fuera del flujo relativo, bloque normal */
+    .map-mobile-wrapper {
+      display: none;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 1920px) {
       .site {
         width: 100%;
@@ -170,20 +248,62 @@
     @media (max-width: 768px) {
       body {
         background: #cfeaf2;
+        overflow-x: hidden;
+      }
+
+      /* mostrar nav mobile, ocultar hotspots */
+      .mobile-nav {
+        display: block;
+      }
+
+      .hotspot,
+      .home-link {
+        display: none;
+      }
+
+      /* mapa mobile en bloque normal debajo de la imagen */
+      .real-map,
+      .map-link-cover {
+        display: none;
+      }
+
+      .map-mobile-wrapper {
+        display: block;
+        width: 100%;
+        height: 220px;
+      }
+
+      .map-mobile-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
       }
 
       .site {
-        width: 960px;
-        max-width: none;
-        margin: 0;
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- NAV MOBILE (solo visible en pantallas ≤768px) -->
+  <nav class="mobile-nav" aria-label="Navegación móvil">
+    <div class="mobile-nav-inner">
+      <button class="mobile-logo" onclick="showPage('home')" aria-label="Inicio" style="background:transparent;border:0;cursor:pointer;">
+        <span>Municipalidad<br>General Lavalle</span>
+      </button>
+      <button class="mobile-nav-btn" onclick="showPage('municipio')">Municipio</button>
+      <button class="mobile-nav-btn" onclick="showPage('contacto')">Contacto</button>
+      <button class="mobile-nav-btn" onclick="showPage('home')">Turismo</button>
+      <button class="mobile-nav-btn" onclick="showPage('home')">Noticias</button>
+      <button class="mobile-nav-btn" onclick="showPage('hcd')">HCD</button>
+    </div>
+  </nav>
+
   <main class="site" aria-label="Municipalidad de General Lavalle">
     <section class="page active" id="home" aria-label="Inicio">
-      <img src="images/page_01.jpg" alt="Página de inicio de Municipalidad de General Lavalle">
+      <img src="fronted/images/page_01.jpg" alt="Pagina de inicio de Municipalidad de General Lavalle">
       <iframe
         class="real-map"
         title="Mapa de General Lavalle"
@@ -192,6 +312,15 @@
         src="https://www.google.com/maps?q=General%20Lavalle,%20Buenos%20Aires,%20Argentina&output=embed">
       </iframe>
       <span class="map-link-cover" aria-hidden="true"></span>
+      <!-- Mapa mobile (debajo de imagen en mobile) -->
+      <div class="map-mobile-wrapper">
+        <iframe
+          title="Mapa de General Lavalle móvil"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=General%20Lavalle,%20Buenos%20Aires,%20Argentina&output=embed">
+        </iframe>
+      </div>
       <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
       <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
@@ -201,7 +330,7 @@
     </section>
 
     <section class="page" id="hcd" aria-label="Honorable Concejo Deliberante">
-      <img src="images/page_02.jpg" alt="Conformación Honorable Concejo Deliberante General Lavalle">
+      <img src="fronted/images/page_02.jpg" alt="Conformacion Honorable Concejo Deliberante General Lavalle">
       <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
       <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
@@ -211,7 +340,7 @@
     </section>
 
     <section class="page" id="contacto" aria-label="Contacto">
-      <img src="images/page_03.jpg" alt="Guía de teléfonos útiles de General Lavalle">
+      <img src="fronted/images/page_03.jpg" alt="Guia de telefonos utiles de General Lavalle">
       <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
       <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
@@ -221,7 +350,7 @@
     </section>
 
     <section class="page" id="municipio" aria-label="Municipio">
-      <img src="images/page_04.jpg" alt="Autoridades y ciudad de General Lavalle">
+      <img src="fronted/images/page_04.jpg" alt="Autoridades y ciudad de General Lavalle">
       <button class="home-link" type="button" onclick="showPage('home')" aria-label="Inicio"></button>
       <button class="hotspot municipio" type="button" onclick="showPage('municipio')" aria-label="Municipio"></button>
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
