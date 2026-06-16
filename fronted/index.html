@@ -50,6 +50,7 @@
       cursor: pointer;
       font-size: 0;
       color: transparent;
+      text-decoration: none;
       z-index: 3;
     }
 
@@ -62,7 +63,7 @@
     .contacto { left: 43.5%; width: 8.8%; }
     .turismo { left: 52.3%; width: 7.7%; }
     .noticias { left: 60.0%; width: 8.5%; }
-    .hcd { left: 68.5%; width: 5.5%; }
+    .hcd { left: 68.0%; width: 7.0%; }
 
     .home-link {
       position: absolute;
@@ -140,7 +141,7 @@
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
       <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
       <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
-      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+      <a class="hotspot hcd" href="#hcd" aria-label="HCD">HCD</a>
     </section>
 
     <section class="page" id="hcd" aria-label="Honorable Concejo Deliberante">
@@ -150,7 +151,7 @@
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
       <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
       <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
-      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+      <a class="hotspot hcd" href="#hcd" aria-label="HCD">HCD</a>
     </section>
 
     <section class="page" id="contacto" aria-label="Contacto">
@@ -160,7 +161,7 @@
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
       <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
       <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
-      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+      <a class="hotspot hcd" href="#hcd" aria-label="HCD">HCD</a>
     </section>
 
     <section class="page" id="municipio" aria-label="Municipio">
@@ -170,7 +171,7 @@
       <button class="hotspot contacto" type="button" onclick="showPage('contacto')" aria-label="Contacto"></button>
       <button class="hotspot turismo" type="button" onclick="showPage('home')" aria-label="Turismo"></button>
       <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
-      <button class="hotspot hcd" type="button" onclick="showPage('hcd')" aria-label="HCD"></button>
+      <a class="hotspot hcd" href="#hcd" aria-label="HCD">HCD</a>
     </section>
   </main>
 
