@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Municipalidad de General Lavalle</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html,
-    body {
+    html, body {
       margin: 0;
       min-height: 100%;
       background: #ffffff;
@@ -31,15 +28,12 @@
       scrollbar-width: none;
     }
     .mobile-nav::-webkit-scrollbar { display: none; }
-
     .mobile-nav-inner {
       display: flex;
       align-items: center;
-      gap: 0;
       padding: 0 4px;
       min-width: max-content;
     }
-
     .mobile-logo {
       display: flex;
       align-items: center;
@@ -48,14 +42,11 @@
       text-decoration: none;
       border-right: 1px solid rgba(255,255,255,0.12);
       flex-shrink: 0;
+      background: transparent;
+      border-top: 0;
+      border-bottom: 0;
+      cursor: pointer;
     }
-
-    .mobile-logo img {
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-    }
-
     .mobile-logo span {
       color: #fff;
       font-size: 12px;
@@ -63,7 +54,6 @@
       line-height: 1.2;
       white-space: nowrap;
     }
-
     .mobile-nav-btn {
       display: inline-flex;
       align-items: center;
@@ -75,14 +65,11 @@
       font-weight: 600;
       font-family: Arial, Helvetica, sans-serif;
       cursor: pointer;
-      text-decoration: none;
       white-space: nowrap;
       transition: color 160ms ease, background 160ms ease;
       letter-spacing: 0.3px;
     }
-
-    .mobile-nav-btn:hover,
-    .mobile-nav-btn:active {
+    .mobile-nav-btn:hover, .mobile-nav-btn:active {
       color: #fff;
       background: rgba(255,255,255,0.1);
     }
@@ -94,16 +81,11 @@
       position: relative;
       background: #cfeaf2;
     }
-
     .page {
       display: none;
       position: relative;
     }
-
-    .page.active {
-      display: block;
-    }
-
+    .page.active { display: block; }
     .page img {
       width: 100%;
       height: auto;
@@ -124,31 +106,18 @@
       color: transparent;
       text-decoration: none;
       z-index: 3;
-      transition: transform 160ms ease;
+      border-radius: 4px;
+      transition: background 160ms ease;
     }
+    .hotspot:hover { background: rgba(255,255,255,0.22); }
+    .hotspot:active { background: rgba(255,255,255,0.35); }
 
-    .hotspot:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.95);
-      outline-offset: 2px;
-    }
-
-    .hotspot:hover,
-    .home-link:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 999px;
-    }
-
-    .hotspot:active,
-    .home-link:active {
-      background: rgba(255, 255, 255, 0.32);
-      border-radius: 999px;
-    }
-
-    .municipio { left: 34.8%; width: 8.2%; }
-    .contacto  { left: 44.0%; width: 7.5%; }
-    .turismo   { left: 52.3%; width: 6.5%; }
-    .noticias  { left: 59.4%; width: 7.0%; }
-    .hcd       { left: 67.1%; width: 4.2%; }
+    /* posiciones ajustadas sobre cada palabra */
+    .municipio { left: 35.5%; width: 7.5%; }
+    .contacto  { left: 43.8%; width: 7.2%; }
+    .turismo   { left: 51.7%; width: 6.3%; }
+    .noticias  { left: 58.6%; width: 6.8%; }
+    .hcd       { left: 66.0%; width: 3.8%; }
 
     .home-link {
       position: absolute;
@@ -163,8 +132,10 @@
       font-size: 0;
       color: transparent;
       z-index: 3;
-      transition: transform 160ms ease;
+      transition: background 160ms ease;
+      border-radius: 4px;
     }
+    .home-link:hover { background: rgba(255,255,255,0.15); }
 
     #home {
       --nav-top: 1.7%;
@@ -172,21 +143,18 @@
       --logo-top: 1.0%;
       --logo-height: 3.2%;
     }
-
     #hcd {
       --nav-top: 3.25%;
       --nav-height: 2.7%;
       --logo-top: 1.8%;
       --logo-height: 6.0%;
     }
-
     #contacto {
       --nav-top: 1.58%;
       --nav-height: 1.35%;
       --logo-top: 0.95%;
       --logo-height: 3.0%;
     }
-
     #municipio {
       --nav-top: 2.72%;
       --nav-height: 2.25%;
@@ -204,7 +172,6 @@
       border: 0;
       z-index: 2;
     }
-
     .map-link-cover {
       position: absolute;
       left: 0;
@@ -215,65 +182,35 @@
       z-index: 2;
       pointer-events: none;
     }
-
-    /* mapa en mobile: fuera del flujo relativo, bloque normal */
-    .map-mobile-wrapper {
-      display: none;
-    }
+    .map-mobile-wrapper { display: none; }
 
     /* ── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 1920px) {
-      .site {
-        width: 100%;
-      }
-    }
+    @media (max-width: 1920px) { .site { width: 100%; } }
 
     @media (max-width: 768px) {
-      body {
-        background: #cfeaf2;
-        overflow-x: hidden;
-      }
-
-      /* mostrar nav mobile, ocultar hotspots */
-      .mobile-nav {
-        display: block;
-      }
-
-      .hotspot,
-      .home-link {
-        display: none;
-      }
-
-      /* mapa mobile en bloque normal debajo de la imagen */
-      .real-map,
-      .map-link-cover {
-        display: none;
-      }
-
+      body { background: #cfeaf2; overflow-x: hidden; }
+      .mobile-nav { display: block; }
+      .hotspot, .home-link { display: none; }
+      .real-map, .map-link-cover { display: none; }
       .map-mobile-wrapper {
         display: block;
         width: 100%;
         height: 220px;
       }
-
       .map-mobile-wrapper iframe {
         width: 100%;
         height: 100%;
         border: 0;
       }
-
-      .site {
-        width: 100%;
-      }
+      .site { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV MOBILE (solo visible en pantallas ≤768px) -->
   <nav class="mobile-nav" aria-label="Navegación móvil">
     <div class="mobile-nav-inner">
-      <button class="mobile-logo" onclick="showPage('home')" aria-label="Inicio" style="background:transparent;border:0;cursor:pointer;">
+      <button class="mobile-logo" onclick="showPage('home')" aria-label="Inicio">
         <span>Municipalidad<br>General Lavalle</span>
       </button>
       <button class="mobile-nav-btn" onclick="showPage('municipio')">Municipio</button>
@@ -285,22 +222,16 @@
   </nav>
 
   <main class="site" aria-label="Municipalidad de General Lavalle">
+
     <section class="page active" id="home" aria-label="Inicio">
       <img src="fronted/images/page_01.jpg" alt="Pagina de inicio de Municipalidad de General Lavalle">
-      <iframe
-        class="real-map"
-        title="Mapa de General Lavalle"
-        loading="lazy"
+      <iframe class="real-map" title="Mapa de General Lavalle" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps?q=General%20Lavalle,%20Buenos%20Aires,%20Argentina&output=embed">
       </iframe>
       <span class="map-link-cover" aria-hidden="true"></span>
-      <!-- Mapa mobile (debajo de imagen en mobile) -->
       <div class="map-mobile-wrapper">
-        <iframe
-          title="Mapa de General Lavalle móvil"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+        <iframe title="Mapa móvil" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=General%20Lavalle,%20Buenos%20Aires,%20Argentina&output=embed">
         </iframe>
       </div>
@@ -341,6 +272,7 @@
       <button class="hotspot noticias" type="button" onclick="showPage('home')" aria-label="Noticias"></button>
       <a class="hotspot hcd" href="#hcd" aria-label="HCD">HCD</a>
     </section>
+
   </main>
 
   <script>
@@ -348,7 +280,7 @@
 
     function showPage(pageId, updateHash = true) {
       const target = validPages.has(pageId) ? pageId : 'home';
-      document.querySelectorAll('.page').forEach((page) => {
+      document.querySelectorAll('.page').forEach(page => {
         page.classList.toggle('active', page.id === target);
       });
       window.scrollTo({ top: 0, behavior: 'instant' });
