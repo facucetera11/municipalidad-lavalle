@@ -506,10 +506,11 @@ img { display: block; width: 100%; height: auto; }
 
 .contacto-intro h1 {
   font-family: 'Fjalla One', Arial, sans-serif;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: normal;
   color: var(--maroon);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.15;
 }
 
 .contacto-intro p { font-size: 13px; color: #555; line-height: 1.5; }
@@ -517,31 +518,35 @@ img { display: block; width: 100%; height: auto; }
 .dir-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12.5px;
-  margin-bottom: 28px;
+  font-size: 13px;
+  margin-bottom: 32px;
+  table-layout: fixed;
 }
 
 .dir-table th {
   background: transparent;
   color: var(--navy);
-  padding: 10px 6px;
+  padding: 10px 8px;
   text-align: left;
   font-size: 13px;
   font-weight: bold;
   border-bottom: 2px solid var(--navy);
+  word-break: break-word;
 }
 
 .dir-table td {
-  padding: 9px 6px;
+  padding: 9px 8px;
   border-bottom: 1px solid #4d8c93;
   vertical-align: top;
-  color: #1a1a1a;
-  line-height: 1.5;
+  color: var(--navy);
+  line-height: 1.55;
+  word-break: break-word;
 }
 
+.dir-table td:first-child { color: var(--navy); }
 .dir-table tr:last-child td { border-bottom: 1px solid #4d8c93; }
-.dir-table a { color: var(--maroon); text-decoration: none; }
-.dir-table a:hover { text-decoration: underline; }
+.dir-table a { color: var(--navy); text-decoration: none; }
+.dir-table a:hover { text-decoration: underline; color: var(--maroon); }
 
 /* ===== TURISMO ===== */
 .turismo-intro { margin: 28px 0 10px; }
