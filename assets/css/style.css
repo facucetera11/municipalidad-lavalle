@@ -136,8 +136,6 @@ img { display: block; width: 100%; height: auto; }
 /* ===== INNER BANNER (subpages) ===== */
 .inner-banner-wrap {
   width: 100%;
-  overflow: hidden;
-  max-height: 220px;
   background: var(--cream);
   display: flex;
   justify-content: center;
@@ -145,8 +143,7 @@ img { display: block; width: 100%; height: auto; }
 .inner-banner {
   width: 100%;
   height: auto;
-  object-fit: cover;
-  max-height: 220px;
+  display: block;
 }
 
 /* ===== HIGHLIGHTS SHELL ===== */
