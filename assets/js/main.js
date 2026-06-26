@@ -15,6 +15,20 @@ function showPage(id) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function goToTurismo(sectionId) {
+  showPage('turismo');
+  // wait a tick for the page to become visible/active before measuring position
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const active = document.querySelector('.page.active');
   document.documentElement.setAttribute('data-bg', active ? (active.dataset.bg || 'cream') : 'cream');

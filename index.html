@@ -13,7 +13,8 @@
   <!-- ============ NAV (común a todas las páginas) ============ -->
   <nav class="topbar">
     <button class="brand" onclick="showPage('home')" aria-label="Inicio">
-      <img src="assets/img/logo.png" alt="Escudo Municipalidad de General Lavalle">
+      <img class="brand-logo logo-sky" src="assets/img/logo-sky.png" alt="Escudo Municipalidad de General Lavalle">
+      <img class="brand-logo logo-cream" src="assets/img/logo-cream.png" alt="Escudo Municipalidad de General Lavalle">
       <span class="brand-text">Municipalidad<br>de General Lavalle
         <small>Provincia de Buenos Aires</small>
       </span>
@@ -35,7 +36,7 @@
   <!-- ============================================================ -->
   <section class="page active" id="home" data-bg="sky" aria-label="Inicio">
 
-    <div class="hero-banner-wrap">
+    <div class="hero-banner-wrap full-bleed">
       <img class="hero-banner" src="assets/img/hero-banner.png" alt="Gral Lavalle - ilustración de bienvenida">
     </div>
 
@@ -52,7 +53,7 @@
             <div class="hl-caption">Una nueva jornada ganadera</div>
           </div>
           <div class="hl-text-card">
-            En Lavalle hay producción cultura para compartir y en Campos del Tuyú la naturaleza que debemos proteger y sentir
+            En Lavalle hay producción<br>cultura para compartir<br>y en Campos del Tuyú la naturaleza<br>que debemos proteger y sentir
           </div>
         </div>
       </div>
@@ -82,9 +83,9 @@
 
       <h2 class="section-title">Nuestra riqueza patrimonial</h2>
       <div class="pill-row">
-        <button class="pill-btn" onclick="showPage('turismo')">Naturaleza</button>
-        <button class="pill-btn" onclick="showPage('turismo')">Cultura</button>
-        <button class="pill-btn" onclick="showPage('turismo')">Producción</button>
+        <button class="pill-btn" onclick="goToTurismo('naturaleza')">Naturaleza</button>
+        <button class="pill-btn" onclick="goToTurismo('cultura')">Cultura</button>
+        <button class="pill-btn" onclick="goToTurismo('produccion')">Producción</button>
       </div>
 
       <div class="info-card">
@@ -127,7 +128,7 @@
         </div>
       </div>
     </footer>
-    <div class="footer-illustration-wrap">
+    <div class="footer-illustration-wrap full-bleed">
       <img class="footer-illustration" src="assets/img/footer-illustration.png" alt="Ilustración cultura y producción de General Lavalle">
     </div>
 
@@ -138,7 +139,7 @@
   <!-- ============================================================ -->
   <section class="page" id="municipio" data-bg="cream" aria-label="Municipio">
 
-    <div class="inner-banner-wrap">
+    <div class="inner-banner-wrap full-bleed">
       <img class="inner-banner" src="assets/img/inner-banner.png" alt="Gral Lavalle">
     </div>
 
@@ -190,7 +191,7 @@
         </div>
       </div>
     </footer>
-    <div class="footer-illustration-wrap">
+    <div class="footer-illustration-wrap full-bleed">
       <img class="footer-illustration" src="assets/img/footer-illustration.png" alt="Ilustración cultura y producción de General Lavalle">
     </div>
 
@@ -201,7 +202,7 @@
   <!-- ============================================================ -->
   <section class="page" id="contacto" data-bg="cream" aria-label="Contacto">
 
-    <div class="inner-banner-wrap">
+    <div class="inner-banner-wrap full-bleed">
       <img class="inner-banner" src="assets/img/inner-banner.png" alt="Gral Lavalle">
     </div>
 
@@ -302,7 +303,7 @@
         </div>
       </div>
     </footer>
-    <div class="footer-illustration-wrap">
+    <div class="footer-illustration-wrap full-bleed">
       <img class="footer-illustration" src="assets/img/footer-illustration.png" alt="Ilustración cultura y producción de General Lavalle">
     </div>
 
@@ -313,7 +314,7 @@
   <!-- ============================================================ -->
   <section class="page" id="turismo" data-bg="cream" aria-label="Turismo">
 
-    <div class="inner-banner-wrap">
+    <div class="inner-banner-wrap full-bleed">
       <img class="inner-banner" src="assets/img/inner-banner.png" alt="Gral Lavalle">
     </div>
 
@@ -326,22 +327,25 @@
 
       <div class="turismo-divider"><span>Explorá General Lavalle</span></div>
 
-      <div class="ribbon"><span>Naturaleza</span></div>
+      <div class="ribbon" id="naturaleza"><span>Naturaleza</span></div>
       <p class="ribbon-desc">Entre paisajes, humedales y vida silvestre, cada rincón invita a descubrir la riqueza natural y disfrutar de la tranquilidad al aire libre.</p>
       <div class="explore-grid">
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-parque-tuyu.jpg" alt="Parque Nacional Campos del Tuyú">
           <div class="explore-body">
             <h3>Parque Nacional<br>Campos del Tuyú</h3>
             <p>Un paisaje único de pastizales y humedales que protege una gran <b>diversidad de especies</b>, entre ellas el emblemático venado de las pampas. Ideal para <b>conectar con la naturaleza</b> y descubrir la riqueza de la región.</p>
           </div>
         </div>
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-laguna-salada.jpg" alt="Laguna La Salada">
           <div class="explore-body">
             <h3>Laguna<br>"La Salada"</h3>
             <p>Un entorno natural ideal para disfrutar de la <b>tranquilidad</b> y el aire libre. Sus paisajes y espejos de agua la convierten en un espacio perfecto para la pesca, el descanso y el contacto con la naturaleza.</p>
           </div>
         </div>
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-pampas-birding.jpg" alt="Pampas Birding Tour">
           <div class="explore-body">
             <h3>Pampas<br>Birding Tour</h3>
             <p>Una experiencia ideal para los amantes de la naturaleza y la <b>observación de aves</b>. A través de excursiones guiadas, permite descubrir la biodiversidad de los pastizales, lagunas y humedales característicos de la región.</p>
@@ -349,10 +353,11 @@
         </div>
       </div>
 
-      <div class="ribbon"><span>Cultura</span></div>
+      <div class="ribbon" id="cultura"><span>Cultura</span></div>
       <p class="ribbon-desc">Donde la historia y las tradiciones se mantienen vivas, los espacios emblemáticos revelan la esencia y la memoria de generaciones.</p>
       <div class="explore-grid">
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-iglesia-merced.jpg" alt="Iglesia Nuestra Señora de la Merced">
           <div class="explore-body">
             <h3>Iglesia Nuestra Señora<br>de la Merced</h3>
             <p>Testigo de la historia y las tradiciones locales, esta emblemática iglesia destaca por su <b>arquitectura</b> y por ser uno de los rincones más representativos del patrimonio cultural de la región.</p>
@@ -374,22 +379,25 @@
         </div>
       </div>
 
-      <div class="ribbon"><span>Producción</span></div>
+      <div class="ribbon" id="produccion"><span>Producción</span></div>
       <p class="ribbon-desc">El motor que impulsa la vida cotidiana, donde el trabajo y las actividades productivas reflejan el espíritu y las raíces de la comunidad.</p>
       <div class="explore-grid">
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-tortita-negra.jpg" alt="Fiesta Regional de la Tortita Negra">
           <div class="explore-body">
             <h3>Fiesta Regional<br>de la Tortita Negra</h3>
             <p>Entre <b>aromas, sabores y tradiciones</b>, esta celebración reúne a vecinos y visitantes para disfrutar de música, gastronomía y uno de los íconos más queridos de la identidad local.</p>
           </div>
         </div>
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-puerto-pesquero.jpg" alt="Puerto Pesquero">
           <div class="explore-body">
             <h3>Puerto<br>Pesquero</h3>
             <p>Donde el trabajo y la tradición se encuentran, este histórico puerto refleja el vínculo de la comunidad con el río y la <b>actividad pesquera</b>, uno de los pilares que impulsan la vida cotidiana.</p>
           </div>
         </div>
-        <div class="explore-card no-img">
+        <div class="explore-card">
+          <img class="explore-img" src="assets/img/turismo-ferias-fiestas.jpg" alt="Ferias y Fiestas Populares">
           <div class="explore-body">
             <h3>Ferias y Fiestas<br>Populares</h3>
             <p>Entre sabores, música y tradiciones, estos encuentros reúnen a vecinos y visitantes para celebrar las <b>costumbres locales</b> y disfrutar de la calidez de una comunidad que mantiene vivas sus raíces.</p>
@@ -420,7 +428,7 @@
         </div>
       </div>
     </footer>
-    <div class="footer-illustration-wrap">
+    <div class="footer-illustration-wrap full-bleed">
       <img class="footer-illustration" src="assets/img/footer-illustration.png" alt="Ilustración cultura y producción de General Lavalle">
     </div>
 
@@ -431,7 +439,7 @@
   <!-- ============================================================ -->
   <section class="page" id="noticias" data-bg="cream" aria-label="Noticias">
 
-    <div class="inner-banner-wrap">
+    <div class="inner-banner-wrap full-bleed">
       <img class="inner-banner" src="assets/img/inner-banner.png" alt="Gral Lavalle">
     </div>
 
@@ -536,7 +544,7 @@
         </div>
       </div>
     </footer>
-    <div class="footer-illustration-wrap">
+    <div class="footer-illustration-wrap full-bleed">
       <img class="footer-illustration" src="assets/img/footer-illustration.png" alt="Ilustración cultura y producción de General Lavalle">
     </div>
 
@@ -547,12 +555,12 @@
   <!-- ============================================================ -->
   <section class="page" id="hcd" data-bg="cream" aria-label="Honorable Concejo Deliberante">
 
-    <div class="inner-banner-wrap">
+    <div class="inner-banner-wrap full-bleed">
       <img class="inner-banner" src="assets/img/inner-banner.png" alt="Gral Lavalle">
     </div>
 
     <div style="padding: 0 clamp(16px,4vw,56px);">
-      <h1 class="page-heading">Conformación Honorable Concejo<br>Deliberante General Lavalle</h1>
+      <h1 class="page-heading heading-tight">Conformación Honorable Concejo Deliberante General Lavalle</h1>
 
       <table class="hcd-table">
         <tr><td>Presidente</td><td>José Luciano García</td></tr>
@@ -592,7 +600,7 @@
         </div>
       </div>
     </footer>
-    <div class="footer-illustration-wrap">
+    <div class="footer-illustration-wrap full-bleed">
       <img class="footer-illustration" src="assets/img/footer-illustration.png" alt="Ilustración cultura y producción de General Lavalle">
     </div>
 
