@@ -1,11 +1,21 @@
-/* ===== FONTS =====
-   Nota: "Acumin Variable Concept" es una fuente comercial de Adobe y no está
-   disponible para incrustar en la web vía Google Fonts. Se usa como
-   reemplazo más cercano "Barlow Condensed", que tiene la misma lógica de
+﻿/* ===== FONTS =====
+   Nota: "Acumin Variable Concept" es una fuente comercial de Adobe y no estÃ¡
+   disponible para incrustar en la web vÃ­a Google Fonts. Se usa como
+   reemplazo mÃ¡s cercano "Barlow Condensed", que tiene la misma lÃ³gica de
    pesos (ExtraBold ~ ExtraCondensed Bold / Medium ~ Condensed Medium).
-   Los carteles NATURALEZA / CULTURA / PRODUCCIÓN usan "Gozaru", pedida
-   explícitamente. */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Gozaru&display=swap');
+   Los carteles NATURALEZA / CULTURA / PRODUCCIÃ“N usan "Gozaru", pedida
+   explÃ­citamente. */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Gozaru';
+  src: url('../fonts/Gozaru.woff2') format('woff2'),
+       url('../fonts/Gozaru.woff') format('woff'),
+       url('../fonts/Gozaru.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
  
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,7 +30,7 @@
   --page-bg: var(--cream);
  
   --font-heading: 'Barlow Condensed', sans-serif;   /* peso 800 ~ ExtraCondensed Bold */
-  --font-ribbon:  'Gozaru', cursive;                 /* NATURALEZA / CULTURA / PRODUCCIÓN */
+  --font-ribbon:  'Gozaru', cursive;                 /* NATURALEZA / CULTURA / PRODUCCIÃ“N */
   --font-body:    'Barlow Condensed', Arial, Helvetica, sans-serif; /* peso 500 ~ Condensed Medium */
 }
  
@@ -448,7 +458,7 @@ html[data-bg="cream"] .logo-sky { display: none; }
   line-height: 1.05;
 }
  
-/* secondary in-page heading (e.g. "Ciudad") — navy instead of maroon */
+/* secondary in-page heading (e.g. "Ciudad") â€” navy instead of maroon */
 .page-heading.heading-navy {
   color: var(--navy);
 }
@@ -460,7 +470,7 @@ html[data-bg="cream"] .logo-sky { display: none; }
   letter-spacing: -0.2px;
 }
  
-/* Authority card — image + label flush to its right, bottom-aligned, no overlap */
+/* Authority card â€” image + label flush to its right, bottom-aligned, no overlap */
 .authority-card {
   display: flex;
   align-items: flex-end;
@@ -628,7 +638,7 @@ html[data-bg="cream"] .logo-sky { display: none; }
   display: inline-block;
 }
 .acento-o::after {
-  content: "´";
+  content: "Â´";
   position: absolute;
   top: -0.22em;
   left: 50%;
