@@ -5,17 +5,7 @@
    pesos (ExtraBold ~ ExtraCondensed Bold / Medium ~ Condensed Medium).
    Los carteles NATURALEZA / CULTURA / PRODUCCIÓN usan "Gozaru", pedida
    explícitamente. */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&display=swap');
-
-@font-face {
-  font-family: 'Gozaru';
-  src: url('../fonts/Gozaru.woff2') format('woff2'),
-       url('../fonts/Gozaru.woff')  format('woff'),
-       url('../fonts/Gozaru.ttf')   format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Gozaru&display=swap');
 
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -632,7 +622,23 @@ html[data-bg="cream"] .logo-sky { display: none; }
   letter-spacing: 3px;
 }
 
-
+/* Tilde sobre la O de PRODUCCION en fuente Gozaru (no soporta Ó) */
+.acento-o {
+  position: relative;
+  display: inline-block;
+}
+.acento-o::after {
+  content: "´";
+  position: absolute;
+  top: -0.3em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 0.5em;
+  color: inherit;
+  line-height: 1;
+  pointer-events: none;
+}
 
 .ribbon-desc {
   font-size: 14px;
