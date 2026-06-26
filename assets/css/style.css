@@ -1,11 +1,5 @@
-/* ===== FONTS =====
-   Nota: "Acumin Variable Concept" es una fuente comercial de Adobe y no está
-   disponible para incrustar en la web vía Google Fonts. Se usa como
-   reemplazo más cercano "Barlow Condensed", que tiene la misma lógica de
-   pesos (ExtraBold ~ ExtraCondensed Bold / Medium ~ Condensed Medium).
-   Los carteles NATURALEZA / CULTURA / PRODUCCIÓN usan "Gozaru", pedida
-   explícitamente. */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Gozaru&display=swap');
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Knewave&family=Fjalla+One&display=swap');
 
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,7 +14,7 @@
   --page-bg: var(--cream);
 
   --font-heading: 'Barlow Condensed', sans-serif;   /* peso 800 ~ ExtraCondensed Bold */
-  --font-ribbon:  'Gozaru', cursive;                 /* NATURALEZA / CULTURA / PRODUCCIÓN */
+  --font-ribbon:  'Knewave', cursive;                /* NATURALEZA / CULTURA / PRODUCCIÓN */
   --font-body:    'Barlow Condensed', Arial, Helvetica, sans-serif; /* peso 500 ~ Condensed Medium */
 }
 
@@ -80,8 +74,8 @@ img { display: block; width: 100%; height: auto; }
 }
 
 .brand-logo {
-  width: 64px;
-  height: 64px;
+  height: 56px;
+  width: auto;
   object-fit: contain;
 }
 
@@ -626,6 +620,15 @@ html[data-bg="cream"] .logo-sky { display: none; }
   letter-spacing: 3px;
 }
 
+/* Fallback para caracteres especiales (Ó, Ñ) dentro de texto Knewave */
+.accent-char {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 1.05em;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  vertical-align: baseline;
+}
+
 .ribbon-desc {
   font-size: 14px;
   font-weight: 500;
@@ -781,7 +784,7 @@ html[data-bg="cream"] .logo-sky { display: none; }
   .main-nav button { font-size: 12px; padding: 6px 8px; }
   .nav-search { display: none; }
   .brand-text { font-size: 11px; }
-  .brand-logo { width: 36px; height: 36px; }
+  .brand-logo { height: 36px; width: auto; }
 
   .hl-grid { grid-template-columns: 1fr; }
   .hl-row2 { grid-template-columns: 1fr; }
