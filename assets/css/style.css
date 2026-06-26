@@ -80,8 +80,8 @@ img { display: block; width: 100%; height: auto; }
 }
 
 .brand-logo {
-  width: 64px;
-  height: 64px;
+  height: 54px;
+  width: auto;
   object-fit: contain;
 }
 
@@ -90,11 +90,7 @@ html[data-bg="sky"] .logo-cream { display: none; }
 html[data-bg="cream"] .logo-sky { display: none; }
 
 .brand-text {
-  color: #1a1a1a;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: left;
+  display: none;
 }
 
 .brand-text small {
@@ -624,6 +620,24 @@ html[data-bg="cream"] .logo-sky { display: none; }
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+/* Tilde sobre la O de PRODUCCION en fuente Gozaru */
+.acento-o {
+  position: relative;
+  display: inline-block;
+}
+.acento-o::after {
+  content: "´";
+  position: absolute;
+  top: -0.22em;
+  left: 50%;
+  transform: translateX(-60%);
+  font-family: Arial, sans-serif;
+  font-size: 0.55em;
+  color: #f8e4b7;
+  line-height: 1;
+  pointer-events: none;
 }
 
 .ribbon-desc {
